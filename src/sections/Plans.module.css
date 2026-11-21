@@ -1,0 +1,376 @@
+.section {
+  background: var(--surface);
+  border-block: 1px solid var(--border);
+}
+
+.headSide {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.billing {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.toggle {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.toggleBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  min-width: 8.5rem;
+  padding: 0 1.25rem;
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  color: var(--text-2);
+  transition: color var(--t-ui) var(--ease-out);
+}
+
+.toggleBtn > span:not(.togglePill) {
+  position: relative;
+  z-index: 1;
+}
+
+.toggleBtn[aria-pressed='true'] {
+  color: var(--btn-fg);
+}
+
+.togglePill {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--btn-bg);
+}
+
+.save {
+  font-size: var(--fs-micro);
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--r-pill);
+  border: 1px solid currentColor;
+}
+
+.terms {
+  color: var(--text-2);
+  font-size: var(--fs-small);
+  max-width: 52ch;
+}
+
+/* ---------- Cartões ---------- */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1.08fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border-radius: var(--r-lg);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  transition: border-color var(--t-ui) var(--ease-out), transform var(--t-ui-slow) var(--ease-out);
+}
+
+.card[data-highlight] {
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+
+@media (min-width: 1024px) {
+  .card[data-highlight] {
+    margin-block: -14px;
+    padding-block: calc(clamp(1.5rem, 2.5vw, 2.25rem) + 14px);
+  }
+}
+
+.ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 2px solid var(--accent);
+  pointer-events: none;
+}
+
+.flag {
+  position: absolute;
+  top: 0;
+  right: clamp(1.5rem, 2.5vw, 2.25rem);
+  transform: translateY(-50%);
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: var(--signal);
+  color: var(--on-signal);
+  font-size: var(--fs-micro);
+  font-weight: 800;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  min-height: 44px;
+  border-radius: var(--r-sm);
+}
+
+.select::after {
+  /* o cartão inteiro seleciona o plano */
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+}
+
+.radio {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--border-strong);
+}
+
+.card[data-selected] .radio {
+  border-color: var(--accent);
+}
+
+.radioDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.planName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.tagline {
+  color: var(--text-2);
+  margin-top: -0.6rem;
+}
+
+.priceBlock {
+  padding-block: 1.25rem;
+  border-block: 1px solid var(--border);
+}
+
+.price {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.currency {
+  font-weight: 700;
+  margin-top: 0.6rem;
+  color: var(--text-2);
+}
+
+.amount {
+  display: inline-flex;
+  align-items: flex-start;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 6vw, 4.75rem);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cents {
+  font-size: 0.42em;
+  margin-top: 0.18em;
+}
+
+.per {
+  align-self: flex-end;
+  margin-bottom: 0.6rem;
+  color: var(--text-2);
+  font-weight: 600;
+  font-size: var(--fs-small);
+}
+
+.priceNote {
+  margin-top: 0.6rem;
+  font-size: var(--fs-small);
+  color: var(--text-2);
+  min-height: 2.8em;
+}
+
+.benefits {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.benefits li {
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.benefits svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--accent-ink);
+}
+
+.mods {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
+
+.modsLabel {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.condition {
+  font-size: var(--fs-small);
+  color: var(--text-3);
+  margin-top: auto;
+}
+
+.card :global(a),
+.card button:not(.select) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Resumo ---------- */
+.summary {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.summaryActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+/* ---------- Comparativo ---------- */
+.compareWrap {
+  overflow: hidden;
+}
+
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.compare th,
+.compare td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.compare thead th {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.compare tbody th {
+  text-align: left;
+  font-weight: 600;
+  padding-left: 0;
+}
+
+.compare td {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.compare [data-selected] {
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  color: var(--text);
+}
+
+.yes {
+  color: var(--accent-ink);
+  vertical-align: middle;
+}
+
+.no {
+  color: var(--text-3);
+}
+
+/* No celular, cada recurso vira um bloco com três valores rotulados */
+@media (max-width: 639px) {
+  .compare thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .compare tr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+  }
+  .compare tbody th {
+    grid-column: 1 / -1;
+    border: 0;
+    padding: 0 0 0.5rem;
+  }
+  .compare td {
+    border: 0;
+    padding: 0.5rem 0.25rem;
+    display: grid;
+    gap: 2px;
+    justify-items: center;
+    border-radius: var(--r-sm);
+    font-size: var(--fs-small);
+  }
+  .compare td::before {
+    content: attr(data-plan);
+    font-size: var(--fs-micro);
+    font-weight: 700;
+    color: var(--text-3);
+  }
+}

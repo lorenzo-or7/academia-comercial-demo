@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>PULSE Training Club — Protótipo Or7.dev</title>
+    <meta
+      name="description"
+      content="Protótipo demonstrativo de site para academia: modalidades, grade de aulas, planos, simulador e agendamento de visita."
+    />
+    <meta name="theme-color" content="#101113" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="preload" as="image" href="%BASE_URL%images/hero.jpg" fetchpriority="high" />
+    <script>
+      // Aplica o tema salvo antes da primeira pintura (evita flash)
+      ;(function () {
+        try {
+          var t = localStorage.getItem('pulse-theme')
+          if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+        } catch (e) {}
+      })()
+    </script>
+    <style>
+      .entry-curtain {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        display: grid;
+        place-items: center;
+        background: #101113;
+        color: #f6f7f4;
+        --text: #f6f7f4;
+        --text-2: #b7bab7;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Este protótipo precisa de JavaScript para funcionar.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

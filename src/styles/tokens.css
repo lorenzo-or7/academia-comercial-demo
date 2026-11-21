@@ -1,0 +1,87 @@
+/* PULSE — tokens visuais. Troque aqui para reaplicar a identidade. */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #101113;
+  --surface: #1a1c1f;
+  --surface-2: #24272b;
+  --text: #f6f7f4;
+  --text-2: #b7bab7;
+  --text-3: #8d918e; /* 5.9:1 sobre --bg */
+  --border: #34383b;
+  --border-strong: #4a4f52;
+
+  /* Sinal: o verde-lima de assinatura, sempre com texto escuro por cima */
+  --signal: #d8ff36;
+  --on-signal: #101113;
+  /* Acento usado como texto/linha sobre o fundo do tema */
+  --accent: #d8ff36;
+  --accent-ink: #d8ff36;
+
+  --btn-bg: var(--signal);
+  --btn-fg: var(--on-signal);
+  --btn-bg-hover: #e6ff7a;
+
+  --danger: #ff8a7a;
+  --success: #d8ff36;
+
+  --scrim: rgba(10, 11, 12, 0.72);
+  --shadow-lg: 0 30px 80px -30px rgba(0, 0, 0, 0.7);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f5f5f0;
+  --surface: #ffffff;
+  --surface-2: #eaebe5;
+  --text: #141617;
+  --text-2: #575e60; /* 6.1:1 */
+  --text-3: #62696b; /* ≥4.6:1 inclusive sobre --surface-2 */
+  --border: #d6d9d1;
+  --border-strong: #b9bdb3;
+
+  --signal: #d8ff36;
+  --on-signal: #141617;
+  /* #789800 só atinge 3:1 — usado em linhas e indicadores.
+     Texto em acento usa o tom escurecido (6.4:1). */
+  --accent: #789800;
+  --accent-ink: #4a5e00;
+
+  --btn-bg: #141617;
+  --btn-fg: #d8ff36;
+  --btn-bg-hover: #2a2e30;
+
+  --danger: #b3261e;
+  --success: #4a5e00;
+
+  --scrim: rgba(10, 11, 12, 0.66);
+  --shadow-lg: 0 30px 60px -30px rgba(20, 22, 23, 0.28);
+}
+
+:root {
+  --font-display: 'Barlow Condensed', 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --font-body: 'Manrope Variable', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-display: clamp(3.6rem, 10.4vw, 10.5rem);
+  --fs-h2: clamp(3.1rem, 7.2vw, 6.75rem);
+  --fs-h3: clamp(1.75rem, 2.6vw, 2.5rem);
+  --fs-lead: clamp(1.0625rem, 1.2vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-micro: 0.78rem;
+
+  --gutter: clamp(16px, 4vw, 48px);
+  --container: 1320px;
+  --section-y: clamp(4.5rem, 9vw, 8rem);
+  --nav-h: 72px;
+
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --t-ui: 220ms;
+  --t-ui-slow: 320ms;
+}

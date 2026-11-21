@@ -1,0 +1,275 @@
+.section {
+  background: var(--surface);
+  border-block: 1px solid var(--border);
+}
+
+/* ---------- Desktop: acordeão horizontal ---------- */
+.accordion {
+  display: flex;
+  gap: 10px;
+  height: clamp(560px, 72vh, 720px);
+}
+
+.panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: #0b0c0d;
+  isolation: isolate;
+}
+
+.panelPhoto {
+  position: absolute !important;
+  inset: 0;
+  z-index: -2;
+}
+
+.panelPhoto img {
+  filter: grayscale(1) contrast(1.05) brightness(0.75);
+  transform: scale(1.06);
+  transition: filter 600ms var(--ease-out), transform 900ms var(--ease-out);
+}
+
+.panel[data-active] .panelPhoto img {
+  filter: none;
+  transform: scale(1);
+}
+
+/* posição de recorte própria de cada foto */
+.panel[data-modality='musculacao'] img {
+  object-position: 50% 30%;
+}
+.panel[data-modality='funcional'] img {
+  object-position: 40% 50%;
+}
+.panel[data-modality='cardio'] img {
+  object-position: 30% 40%;
+}
+.panel[data-modality='coletivas'] img {
+  object-position: 55% 40%;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(11, 12, 13, 0.94) 0%, rgba(11, 12, 13, 0.6) 42%, rgba(11, 12, 13, 0.1) 75%);
+}
+
+.panelBody {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 1.75rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.panelHead {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 3vw, 3.25rem);
+  line-height: 0.9;
+}
+
+.panel:not([data-active]) .name {
+  font-size: 1.9rem;
+}
+
+.nameBtn {
+  text-align: left;
+  text-transform: inherit;
+  font: inherit;
+  line-height: inherit;
+  border-radius: 4px;
+}
+
+.nameBtn::after {
+  /* área clicável cobre o painel inteiro */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.panel[data-active] .nameBtn::after {
+  display: none;
+}
+
+.focus {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.panel[data-active] .focus {
+  color: var(--accent);
+}
+
+.detail {
+  display: grid;
+  gap: 1rem;
+  max-width: 34rem;
+}
+
+.formatRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.formatRow p {
+  display: grid;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.formatRow p span {
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+.motif {
+  width: 72px;
+  height: 30px;
+  flex: none;
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.desc {
+  color: var(--text-2);
+  max-width: 48ch;
+}
+
+.benefits {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.benefits li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.benefits svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--accent-ink);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 0.25rem;
+}
+
+/* ---------- Mobile/tablet: pilha editorial ---------- */
+.stack {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+@media (min-width: 680px) {
+  .stack {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  display: grid;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.cardMedia {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+}
+
+.cardMedia > div:first-child {
+  position: absolute;
+  inset: 0;
+}
+
+.cardMedia::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11, 12, 13, 0.9), rgba(11, 12, 13, 0) 60%);
+  pointer-events: none;
+}
+
+.cardTitle {
+  position: absolute;
+  z-index: 1;
+  left: 1.25rem;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.cardTitle .motif {
+  width: 56px;
+  height: 24px;
+  margin-bottom: 0.4rem;
+}
+
+.cardTitle .focus {
+  color: var(--accent);
+}
+
+.card .name {
+  font-size: clamp(2.2rem, 9vw, 2.75rem);
+}
+
+.cardBody {
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  color: var(--text);
+}
+
+.cardMore {
+  overflow: hidden;
+}
+
+.cardMoreInner {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.formatText {
+  font-size: var(--fs-small);
+  color: var(--text-2);
+}
